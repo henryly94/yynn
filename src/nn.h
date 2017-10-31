@@ -1,24 +1,38 @@
 #ifndef YYNN_NN_H_
 #define YYNN_NN_H_
-#include <iostream>
+
+#include "matrix.h"
 #include <vector>
 
-using namespace std;
+using std::vector;
+
+typedef double (*func)(vector<double>, vector<double>);
 
 namespace neuralnetwork{
-	
-	class matrix{
+
+
+	class neuralnetwork{
+	private:
+		double _eta;
+		int _input_size, _output_size;
+		int _layer;
+		vector<int> layer_info;
+		vector<matrix> _w;
+		vector<matrix> _b;
+		
+		vector<matrix> _a;
+		vector<matrix> _z;
 	public:
-		matrix &operator=(const matrix &a);
-		matrix(int m, int n);
-		void print();
-		int _m, _n;
-		vector<vector<double> > _mat;	
-		matrix dot(matrix& a);	
-		void assign(int i, int j, int value);
+		neuralnetwork(vector<int> K_l, double eta);
+		~neuralnetwork();
+		void train_one_sample(vector<double> x, vector<double> y);
+		void train(vector<vector<double> > x, vector<vector<double> > y);
+		void evaluate(vector<vector<double> > x, vector<vector<double> > y);
+		vector<double> forward(vector<double> x);	
+		void set_eta(double e);
+		
 	};
 
 };
-
 
 #endif //YYNN_NN_H_
