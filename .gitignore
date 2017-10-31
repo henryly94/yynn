@@ -1,7 +1,8 @@
 *.swp
 *.out
 *.ipynb*
-
+*.txt
+*makefile
 # Prerequisites
 *.d
 
