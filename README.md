@@ -47,7 +47,8 @@ vector<vector<double> > x;
 nn.evaluation(x);
 ```
 
-Since it based on the homework, the evaluation part is only made for a regression function. You can rewrite the evaluation() to fit your own purpose.
+Since it based on the homework, the evaluation part is only made for a regression function. You can rewrite the evaluation() to fit your own purpose. Here 's the result of the regression in lecture by using 100 unit of 1-hidden layer training for 200 epoch.
 
+![Regression Sample](fig/eg.png)
 
 
